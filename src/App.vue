@@ -1,9 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">
+            <img src="./image/iconplaystore.png" width="30" height="30" class="d-inline-block align-top" alt=""> Google
+            Play
+        </a>
+        <router-link to="/" class="nav-item nav-link active">Home</router-link> 
+        <router-link to="/product" class="nav-item nav-link active">Product</router-link>
+        <router-link to="/about" class="nav-item nav-link active">about</router-link>  
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
     <router-view/>
   </div>
 </template>
