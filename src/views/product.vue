@@ -26,6 +26,7 @@ export default {
         ,products:[],
         pageSize:10,
         pageIndex:1,
+        filter:null,
         fields:[
         {key:'product_id',sortable:true},
         {key:'product_name',sortable:true},
@@ -37,7 +38,13 @@ export default {
              {key:'reorder_level',sortable:true},
               {key:'discontinued',sortable:true}
         ]}
-        },
+        }, methods: {
+    onFiltered (filteredItems) {
+      // Trigger pagination to update the number of buttons/pages due to filtering
+      this.totalRows = filteredItems.length
+      this.currentPage = 1
+    }
+  },
         mounted(){
             axios.get('https://serverquize.herokuapp.com/api/products')
             .then(response=>{
